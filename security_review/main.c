@@ -10,6 +10,7 @@ Explanation: The ALLOCA macro is used to allocate memory on the stack for dataBu
              but there is no check on the size of the input source string before copying it 
              into dataBuffer using strcpy. If the source string is larger than 100 characters, 
              it will cause a buffer overflow.
+Reference: https://cwe.mitre.org/data/definitions/120.html
 */
 void func1()
 {
@@ -35,6 +36,7 @@ Vulnerability 2: Potential NULL Pointer Dereference
 Explanation: The calloc function allocates memory for 'data', but it doesn't check 
              if the allocation was successful. If calloc fails and returns NULL, 
              strcpy will dereference a NULL pointer, leading to undefined behavior.
+Reference: https://cwe.mitre.org/data/definitions/476.html
 */
 void func2()
 {
@@ -53,6 +55,7 @@ Vulnerability 3: Hardcoded Password
 Explanation: The PASSWORD macro contains a hardcoded password, which is a security risk. 
              Storing passwords directly in the source code makes them vulnerable to 
              being discovered by attackers who gain access to the source code.
+Reference: https://cwe.mitre.org/data/definitions/798.html
 */
 void func3()
 {
@@ -85,6 +88,7 @@ void func3()
 Vulnerability 4: Memory Leak
 Explanation: 'data' is allocated memory using calloc, but it's not freed before 
              the function returns, leading to a memory leak.
+Reference: https://cwe.mitre.org/data/definitions/401.html
 */
 static void func4()
 {
@@ -107,6 +111,7 @@ Vulnerability 5: Infinite Loop
 Explanation: The do-while loop in func5 has a condition 'i >= 0', but 'i' is an 
              integer that overflows when it reaches the maximum value, resulting 
              in the loop condition always being true and causing an infinite loop.
+Reference: https://cwe.mitre.org/data/definitions/835.html
 */
 void func5()
 {
@@ -123,6 +128,7 @@ Vulnerability 6: Unbounded Input
 Explanation: func6 uses fgets to read input into 'data', but it doesn't specify 
              the maximum number of characters to read, leading to a potential 
              buffer overflow if the user inputs more than 100 characters.
+Reference: https://cwe.mitre.org/data/definitions/120.html
 */
 void func6()
 {
@@ -144,6 +150,7 @@ void func6()
 Vulnerability 7: Potential NULL Pointer Dereference
 Explanation: 'data' is set to NULL, and then printf is called without checking 
              if 'data' is NULL, which can lead to a NULL pointer dereference.
+Reference: https://cwe.mitre.org/data/definitions/476.html
 */
 void func7()
 {
